@@ -14,12 +14,6 @@
   // since the panel can be accessible from another route than /panel
   // we rely on the specific script used on the panel (panel.min.js)
   function inPanel () {
-    var scripts = document.head.getElementsByTagName('script')
-    for (var i = 0; i < scripts.length; i++) {
-      var script = scripts[i]
-      var filename = script.src.split('/').pop().split('?').shift()
-      if (filename === 'panel.min.js') return true
-    }
-    return false
+    return typeof window.panel !== 'undefined'
   }
 })(window.___browserSync___)
